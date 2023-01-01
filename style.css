@@ -46,12 +46,13 @@
     max-width: 1200px;
     margin: auto;
     box-shadow: 0 2px 2px #111b21;
-    /* overflow: hidden; */
+    overflow: hidden;
   }
 
   /* ------ LEFT SIDE ------ */
   .left {
-    width: 400px;
+    width: calc(100% - 400px);
+    min-width: 300px;
   }
 
   .profile {
@@ -84,6 +85,13 @@
     justify-content: center;
     align-items: flex-end;
     height: 50px;
+  }
+
+  .time small{
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    opacity: 0.5;
   }
 
   .search .icons{
@@ -129,6 +137,8 @@
     background-color: #202c33;
     width: 100%;
     border: none;
+    outline: 0;
+    color: antiquewhite;
   }
 
   .input-search:focus {
@@ -199,29 +209,80 @@
   }
 
   .wrap-chat {
-    height: calc(100% - 120px);
     display: flex;
+    height: calc(100% - 120px);
   }
-
-  .chat {
-    background-color: #e5ddd5;
+  
+  .chatbox {
+    position: relative;
+    color: white;
     background-image: url(https://i.pinimg.com/564x/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg);
     width: 100%;
-    padding: 0px 10%;
-    padding-top: 7px;
+    padding: 5%;
     overflow-y: auto;
   }
-
-  /* ------ CHAT ------ */
-
-  .wrap-message {
-    width: 100%;
-    height: 60px;
-    background: #111b21;
+  
+  .massage {
+    position: relative;
     display: flex;
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .massage p{
+    position: relative;
+    right: 0;
+    text-align: right;
+    max-width: 65%;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    background: #075E54;
   }
 
-  .message {
+  .my_massage p::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -9px;
+    width: 20px; 
+    height: 20px;
+    border-top-right-radius: 3px;
+    background: linear-gradient(135deg,#075E54 0%,#075E54 50%,transparent 50%,transparent 100%);
+  }
+  
+  .massage p span{
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    opacity: 0.5;
+  }
+
+  .my_massage{
+    justify-content: flex-end;
+  }
+  
+  .frnd_massage{
+    justify-content: flex-start;
+  }
+  
+  .frnd_massage p{
+    background-color: #202c33;
+  }
+  .frnd_massage p::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -9px;
+    height: 20px;
+    width: 20px;
+    border-top-left-radius: 5px;
+    background: linear-gradient(225deg,#202c33 0%,#202c33 50%,transparent 50%,transparent 100%);
+  }
+  
+  /* ------ CHAT ------ */
+  
+  .text-area {
     display: flex;
     width: 100%;
     height: 45px;
@@ -230,16 +291,26 @@
     /* border: 1px solid #eeeeee; */
     border-radius: 5px;
   }
+  
+  .wrap-message {
+    width: 100%;
+    height: 60px;
+    background: #111b21;
+    display: flex;
+  }
+
 
   .input-message {
     width: 100%;
     margin: 0px 10px;
     border: none;
+    outline: 0;
+    color: antiquewhite;
     background: #2a3942;
   }
   
   /* ------ MEDIA QUERIES ------ */
-  @media (min-width: 1200px) {
+  @media screen and (min-width: 1200px) {
     .wrap {
       margin-bottom: 2vh;
       margin-top: 25px;
@@ -247,7 +318,7 @@
     }
   }
 
-  @media (max-width: 600px) {
+  @media screen amd(max-width: 600px) {
     .wrap {
       height: calc(100vh - 0.4em);
     }
