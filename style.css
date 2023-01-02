@@ -4,6 +4,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    transition: .1s;
   }
 
   body {
@@ -39,14 +40,12 @@
   }
 
   .wrap {
-    border-radius: 10px;
     display: flex;
     height: 100vh;
     min-width: 600px;
     max-width: 1200px;
     margin: auto;
     box-shadow: 0 2px 2px #111b21;
-    overflow: hidden;
   }
 
   /* ------ LEFT SIDE ------ */
@@ -149,7 +148,8 @@
     background-color: #111b21;
     width: 100%;
     height: calc(100% - 105px);
-    overflow-y: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   .contact-table{
     border-collapse: separate;
@@ -217,6 +217,7 @@
     position: relative;
     color: white;
     background-image: url(https://i.pinimg.com/564x/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg);
+    background-size: cover;
     width: 100%;
     padding: 5%;
     overflow-y: auto;
@@ -280,6 +281,17 @@
     background: linear-gradient(225deg,#202c33 0%,#202c33 50%,transparent 50%,transparent 100%);
   }
   
+  /*--------------Scrollbar---------------*/
+  ::-webkit-scrollbar{
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #2a3942bb;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
   /* ------ CHAT ------ */
   
   .text-area {
@@ -310,16 +322,17 @@
   }
   
   /* ------ MEDIA QUERIES ------ */
-  @media screen and (min-width: 1200px) {
+  @media (min-width: 1200px) {
     .wrap {
+      overflow: hidden;
       margin-bottom: 2vh;
       margin-top: 25px;
       height: calc(98vh - 25px);
     }
   }
 
-  @media screen amd(max-width: 600px) {
+  @media (max-width: 600px) {
     .wrap {
-      height: calc(100vh - 0.4em);
+      height: calc(100vh - 0.4em)
     }
   }
